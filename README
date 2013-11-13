@@ -7,6 +7,12 @@ and the server is restarted.
 Initially written to monitor Duda I/O services, it can be used with any program,
 please refer to the above instructions when monitoring Monkey or Duda service:
 
+Build
+=====
+Just type make, e.g:
+
+ $ make
+
 Requirements
 ============
 Before to launch this program make sure the shell is able to generate core dumps
