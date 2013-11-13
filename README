@@ -1,0 +1,36 @@
+Monkey Watcher (WatchMonkey)
+============================
+This program spawn Monkey HTTP Server in background and redirect it output
+to a stdout.xyz file. Once a program crash is faced, a core dump is generated
+and the server is restarted.
+
+Initially written to monitor Duda I/O services, it can be used with any program,
+please refer to the above instructions when monitoring Monkey or Duda service:
+
+Requirements
+============
+Before to launch this program make sure the shell is able to generate core dumps
+upon segfault or crash detection:
+
+ $ ulimit -c unlimited
+
+Instruct the Kernel to generate core dumps which appends the PID number to the
+core dump file generated:
+
+ # echo 1 > /proc/sys/kernel/core_uses_pid
+
+ note: run this commands as root.
+
+Running with Duda I/O
+=====================
+When running over a Duda I/O service, use the Monkey binary path as argument without
+extra flags, e.g:
+
+ # ./watchmonkey ~/.dudac/stage/monkey/bin/monkey
+
+if the service was already ran by Duda Client Manager (dudaC) there is no extra
+need to rebuilt or change any configuration.
+
+Author
+======
+Eduardo Silva <edsiper@gmail.com>
